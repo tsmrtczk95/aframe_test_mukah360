@@ -43,12 +43,12 @@
         </script>
       </a-assets>
       <!-- 360-degree image. -->
-      <a-sky id="image-360" src="#img-enter" rotation="0 0 0"
+      <a-sky id="image-360" src="#img-enter" rotation="0 -55 0"
         animation__fade="property: component.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
         animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade">
         </a-sky>
       <!-- Pass image sources to the template. -->
-      <a-entity id="links" layout="type: line; margin: 1.5" position="-1.5 2 -4">
+      <a-entity id="links" layout="type: line; margin: 1.5" position="-1.5 0.5 -4" border="1px">
         <a-entity template="src: #link" data-src="#img-enter" data-thumb="#enter-thumb"></a-entity>
         <a-entity template="src: #link" data-src="#img-tibau" data-thumb="#tibau-thumb"></a-entity>
         <a-entity template="src: #link" data-src="#img-stage" data-thumb="#stage-thumb"></a-entity>
