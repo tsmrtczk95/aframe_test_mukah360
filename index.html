@@ -18,7 +18,7 @@
       <a-assets>
         <audio id="click-sound" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
         <!-- Images Custom. -->
-        <img id="img-entrance" src="asset_360/kaul_entrance.jpeg">
+        <img id="img-enter" src="asset_360/kaul_entrance.jpeg">
         <img id="img-stage" src="asset_360/kaul_stage.jpeg">
         <img id="img-signage" src="asset_360/kaul_signage.jpeg">
         <img id="img-tibau" src="asset_360/kaul_tibau.jpeg">
@@ -28,12 +28,15 @@
         <img id="stage-thumb" src="asset_360/thumbnail_stage.jpeg">
       </a-assets>
       <!-- 360-degree image. -->
-      <a-sky id="image-360" src="#img-entrance" rotation="0 -55 0"></a-sky>      
+      <a-sky id="image-360" src="#img-enter" rotation="0 -55 0"></a-sky>      
       <script id="link" type="text/html">
         <a-entity class="link"
         geometry="primitive: plane; height: 0.9 width: 1.2"
         material="shader: flat; src: ${thumb}"
-        sound="on: click; src: #click-sound"></a-entity>
+        sound="on: click; src: #click-sound"
+        event-set__mouseenter="scale: 1.2 1.2 1"
+        event-set__mouseleave="scale: 1 1 1"
+        event-set__click="_target: #image-360; _delay: 300; material.src: ${src}"></a-entity>
       </script>
       <!-- Camera + Cursor. -->
       <a-camera>
@@ -45,10 +48,10 @@
         </a-camera>
       </a-scene>
       <!--...-->
-      <a-entity id="links" layout="type: line; margin: 1.5" position="-1.5 -1 -4">
-        <a-entity template="src: #link" data-thumb="#enter-thumb"></a-entity>
-        <a-entity template="src: #link" data-thumb="#tibau-thumb"></a-entity>
-        <a-entity template="src: #link" data-thumb="#stage-thumb"></a-entity>
+      <a-entity id="links" layout="type: line; margin: 1.5" position="0 0 2.5">
+        <a-entity template="src: #link" data-src="#img-enter" data-thumb="#enter-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#img-tibau" data-thumb="#tibau-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#img-stage" data-thumb="#stage-thumb"></a-entity>
       </a-entity>
   </body>
 </html>
