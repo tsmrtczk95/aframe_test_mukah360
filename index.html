@@ -44,9 +44,11 @@
           animation__fusing="property: scale; from: 1 1 1; to: 0.1 0.1 0.1; easing: easeInCubic; dur: 150; startEvents: fusing"></a-cursor>
         </a-camera>
       </a-scene>
-    <!--...-->
-    <a-entity template="src: asset_360/thumbnail_entrance.jpeg" data-thumb="#thumbnail_entrance"></a-entity>
-    <a-entity template="src: asset_360/thumbnail_tibau.jpeg" data-thumb="#thumbnail_tibau"></a-entity>
-    <a-entity template="src: asset_360/thumbnail_stage.jpeg" data-thumb="#thumbnail_stage"></a-entity>
+      <!--...-->
+      <a-entity id="links" layout="type: line; margin: 1.5" position="-1.5 -1 -4">
+        <a-entity template="src: asset_360/thumbnail_entrance.jpeg" data-thumb="#thumbnail_entrance"></a-entity>
+        <a-entity template="src: asset_360/thumbnail_tibau.jpeg" data-thumb="#thumbnail_tibau"></a-entity>
+        <a-entity template="src: asset_360/thumbnail_stage.jpeg" data-thumb="#thumbnail_stage"></a-entity>
+      </a-entity>
   </body>
 </html>
