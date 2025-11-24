@@ -1,38 +1,24 @@
 <html>
   <head>
     <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
-    <!--<script src="https://unpkg.com/aframe-template-component@3.x.x/dist/aframe-template-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-template-component@3.x.x/dist/aframe-template-component.min.js"></script>
     <script src="https://unpkg.com/aframe-layout-component@5.x.x/dist/aframe-layout-component.min.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@5.x.x/dist/aframe-event-set-component.min.js"></script>
     <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.jss"></script> -->
+    
     <script id="link" type="text/html">
-        <a-entity class="link" position="0 1 -3"
+        <a-entity class="link"
           geometry="primitive: plane; height: 0.9 width: 1.2"
           material="shader: flat; src: asset_360/thumbnail_tibau.jpeg"
           sound="on: click; src: #click-sound"></a-entity>
-      </script>
+    </script>
   </head>
   <body>
-    <!--
-    <a-scene>
-      <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
-      <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
-      <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
-      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
-      <a-sky color="#ECECEC"></a-sky>
-    </a-scene> -->
     <a-scene>
       <a-assets>
         <audio id="click-sound" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
-        <!-- Images. -->
-        <img id="city" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/city.jpg">
-        <img id="city-thumb" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-city.jpg">
-        <img id="cubes" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/cubes.jpg">
-        <img id="cubes-thumb" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-cubes.jpg">
-        <img id="sechelt" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
-        <img id="sechelt-thumb" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-sechelt.jpg">
         <!-- Images Custom. -->
-        <img id="post1" scr="https://github.com/tsmrtczk95/aframe_test_mukah360/blob/efa407d370b53bdb1a4217ef370217a8e75caa62/asset_360/kaul_entrance.jpeg">
+        <img id="post1" scr="asset_360/kaul_entrance.jpeg">
         <img id="post2" scr="asset_360/kaul_stage.jpeg">
         <img id="post3" scr="asset_360/kaul_signage.jpeg">
         <img id="post4" scr="asset_360/kaul_tibau.jpeg">
@@ -41,13 +27,12 @@
         <img id="thumbnail-stage" scr="asset_360/thumbnail_stage.jpeg">
       </a-assets>
       <!-- 360-degree image. -->
-      <!-- <a-sky id="image-360" radius="10" src="#post1"></a-sky> -->
       <a-sky src="asset_360/kaul_entrance.jpeg" rotation="0 -55 0"></a-sky>
       <!-- Link template we will build. -->
       <script id="link" type="text/html">
-      <a-entity class="link" position="0 1 -3"
+        <a-entity class="link"
         geometry="primitive: plane; height: 0.9 width: 1.2"
-        material="shader: flat; src: asset_360/thumbnail_tibau.jpeg"
+        material="shader: flat; src: ${thumbnail}"
         sound="on: click; src: #click-sound"></a-entity>
       </script>
       <!-- Camera + Cursor. -->
@@ -58,7 +43,8 @@
           animation__clickreset="property: scale; to: 0.1 0.1 0.1; dur: 1; startEvents: animationcomplete__click"
           animation__fusing="property: scale; from: 1 1 1; to: 0.1 0.1 0.1; easing: easeInCubic; dur: 150; startEvents: fusing"></a-cursor>
         </a-camera>
-      </a-scene>    
+      </a-scene>
+    <!--...-->
     <a-entity template="src: asset_360/thumbnail_entrance.jpeg" data-thumb="#thumbnail_entrance"></a-entity>
     <a-entity template="src: asset_360/thumbnail_tibau.jpeg" data-thumb="#thumbnail_tibau"></a-entity>
     <a-entity template="src: asset_360/thumbnail_stage.jpeg" data-thumb="#thumbnail_stage"></a-entity>
