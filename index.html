@@ -6,12 +6,16 @@
     <script src="https://unpkg.com/aframe-event-set-component@5.x.x/dist/aframe-event-set-component.min.js"></script>
     <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.js"></script> -->
     
-    <!-- <script id="link" type="text/html">
+    <script id="link" type="text/html">
         <a-entity class="link"
           geometry="primitive: plane; height: 0.9 width: 1.2"
           material="shader: flat; src: ${thumb}"
-          sound="on: click; src: #click-sound"></a-entity>
-    </script> -->
+          sound="on: click; src: #click-sound"
+          event-set__mouseenter="scale: 1.2 1.2 1"
+          event-set__mouseleave="scale: 1 1 1"
+          event-set__click="_target: #image-360; _delay: 300; material.src: ${src}">
+          proxy-event="event: click; to: #image-360; as: fade"></a-entity>
+    </script>
   </head>
   <body>
     <a-scene>
@@ -29,7 +33,7 @@
       </a-assets>
       <!-- 360-degree image. -->
       <a-sky id="image-360" src="#img-enter" rotation="0 -55 0"></a-sky>      
-      <script id="link" type="text/html">
+      <!--<script id="link" type="text/html">
         <a-entity class="link"
         geometry="primitive: plane; height: 0.9 width: 1.2"
         material="shader: flat; src: ${thumb}"
@@ -37,7 +41,12 @@
         event-set__mouseenter="scale: 1.2 1.2 1"
         event-set__mouseleave="scale: 1 1 1"
         event-set__click="_target: #image-360; _delay: 300; material.src: ${src}"></a-entity>
-      </script>
+      </script>-->
+      <a-entity id="links" layout="type: line; margin: 1.5" position="0 0 2.5">
+        <a-entity template="src: #link" data-src="#img-enter" data-thumb="#enter-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#img-tibau" data-thumb="#tibau-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#img-stage" data-thumb="#stage-thumb"></a-entity>
+      </a-entity>
       <!-- Camera + Cursor. -->
       <a-camera>
         <a-cursor
@@ -47,11 +56,5 @@
           animation__fusing="property: scale; from: 1 1 1; to: 0.1 0.1 0.1; easing: easeInCubic; dur: 150; startEvents: fusing"></a-cursor>
         </a-camera>
       </a-scene>
-      <!--...-->
-      <a-entity id="links" layout="type: line; margin: 1.5" position="0 0 2.5">
-        <a-entity template="src: #link" data-src="#img-enter" data-thumb="#enter-thumb"></a-entity>
-        <a-entity template="src: #link" data-src="#img-tibau" data-thumb="#tibau-thumb"></a-entity>
-        <a-entity template="src: #link" data-src="#img-stage" data-thumb="#stage-thumb"></a-entity>
-      </a-entity>
   </body>
 </html>
