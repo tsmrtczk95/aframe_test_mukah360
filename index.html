@@ -6,12 +6,12 @@
     <script src="https://unpkg.com/aframe-event-set-component@5.x.x/dist/aframe-event-set-component.min.js"></script>
     <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.js"></script> -->
     
-    <script id="link" type="text/html">
+    <!-- <script id="link" type="text/html">
         <a-entity class="link"
           geometry="primitive: plane; height: 0.9 width: 1.2"
-          material="shader: flat; src: ${thumbnail}"
+          material="shader: flat; src: ${thumb}"
           sound="on: click; src: #click-sound"></a-entity>
-    </script>
+    </script> -->
   </head>
   <body>
     <a-scene>
@@ -23,17 +23,17 @@
         <img id="img-signage" src="asset_360/kaul_signage.jpeg">
         <img id="img-tibau" src="asset_360/kaul_tibau.jpeg">
         <!-- Thumbnails -->
-        <img id="thumbnail-tibau" src="asset_360/thumbnail_tibau.jpeg">
-        <img id="thumbnail-entrance" src="asset_360/thumbnail_entrance.jpeg">
-        <img id="thumbnail-stage" src="asset_360/thumbnail_stage.jpeg">
+        <img id="tibau-thumb" src="asset_360/thumbnail_tibau.jpeg">
+        <img id="enter-thumb" src="asset_360/thumbnail_entrance.jpeg">
+        <img id="stage-thumb" src="asset_360/thumbnail_stage.jpeg">
       </a-assets>
       <!-- 360-degree image. -->
-      <a-sky id="image-360" radius="10" src="#img-entrance" rotation="0 -55 0"></a-sky>
+      <a-sky id="image-360" src="#img-entrance" rotation="0 -55 0"></a-sky>
       <!-- Link template we will build. -->
       <!-- <script id="link" type="text/html"></script> -->
         <a-entity class="link"
         geometry="primitive: plane; height: 0.9 width: 1.2"
-        material="shader: flat; src: ${thumbnail}"
+        material="shader: flat; src: ${thumb}"
         sound="on: click; src: #click-sound"></a-entity>
       </script>
       <!-- Camera + Cursor. -->
@@ -47,9 +47,9 @@
       </a-scene>
       <!--...-->
       <a-entity id="links" layout="type: line; margin: 1.5" position="-1.5 -1 -4">
-        <a-entity template="src: #link" data-thumb="#thumbnail-entrance" data-image="#img-entrance"> </a-entity>
-        <a-entity template="src: #link" data-thumb="#thumbnail-tibau" data-image="img-tibau"></a-entity>
-        <a-entity template="src: #link" data-thumb="#thumbnail-stage" data-image="img-stage"></a-entity>
+        <a-entity template="src: #link" data-thumb="#enter-thumb"></a-entity>
+        <a-entity template="src: #link" data-thumb="#tibau-thumb"></a-entity>
+        <a-entity template="src: #link" data-thumb="#stage-thumb"></a-entity>
       </a-entity>
   </body>
 </html>
