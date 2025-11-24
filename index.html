@@ -117,5 +117,29 @@
           animation__fusing="property: scale; from: 1 1 1; to: 0.1 0.1 0.1; easing: easeInCubic; dur: 150; startEvents: fusing"></a-cursor>
         </a-camera>
       </a-scene>
+    <script>
+      const sky = document.querySelector('#image-360');
+      
+      sky.addEventListener('materialtextureloaded', function () {
+        const src = sky.getAttribute('src');
+        
+        // Hide all hotspot groups
+        document.querySelector('#hotspots-enter').setAttribute('visible', false);
+        document.querySelector('#hotspots-tibau').setAttribute('visible', false);
+        document.querySelector('#hotspots-stage').setAttribute('visible', false);
+        
+        // Activate relevant group
+        if (src === '#img-enter') {
+          document.querySelector('#hotspots-enter').setAttribute('visible', true);
+          }
+          else if (src === '#img-tibau') {
+            document.querySelector('#hotspots-tibau').setAttribute('visible', true);
+            }
+            else if (src === '#img-stage') {
+              document.querySelector('#hotspots-stage').setAttribute('visible', true);
+              }
+        });
+</script>
+
   </body>
 </html>
