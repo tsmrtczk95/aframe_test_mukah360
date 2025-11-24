@@ -14,7 +14,7 @@
           event-set__mouseenter="scale: 1.2 1.2 1"
           event-set__mouseleave="scale: 1 1 1"
           event-set__click="_target: #image-360; _delay: 300; material.src: ${src}">
-          proxy-event="event: click; to: #image-360; as: fade"></a-entity>
+          proxy-event="event: click; to: #image-360; as: fade></a-entity>
     </script>
   </head>
   <body>
@@ -30,19 +30,25 @@
         <img id="tibau-thumb" src="asset_360/thumbnail_tibau.jpeg">
         <img id="enter-thumb" src="asset_360/thumbnail_entrance.jpeg">
         <img id="stage-thumb" src="asset_360/thumbnail_stage.jpeg">
+
+        <script id="link" type="text/html">
+          <a-entity class="link"
+          geometry="primitive: plane; height: 0.9 width: 1.2"
+          material="shader: flat; src: ${thumb}"
+          sound="on: click; src: #click-sound"
+          event-set__mouseenter="scale: 1.2 1.2 1"
+          event-set__mouseleave="scale: 1 1 1"
+          event-set__click="_target: #image-360; _delay: 300; material.src: ${src}">
+          proxy-event="event: click; to: #image-360; as: fade></a-entity>
+        </script>
       </a-assets>
       <!-- 360-degree image. -->
-      <a-sky id="image-360" src="#img-enter" rotation="0 -55 0"></a-sky>      
-      <!--<script id="link" type="text/html">
-        <a-entity class="link"
-        geometry="primitive: plane; height: 0.9 width: 1.2"
-        material="shader: flat; src: ${thumb}"
-        sound="on: click; src: #click-sound"
-        event-set__mouseenter="scale: 1.2 1.2 1"
-        event-set__mouseleave="scale: 1 1 1"
-        event-set__click="_target: #image-360; _delay: 300; material.src: ${src}"></a-entity>
-      </script>-->
-      <a-entity id="links" layout="type: line; margin: 1.5" position="0 0 2.5">
+      <a-sky id="image-360" src="#img-enter" rotation="0 0 0"
+        animation__fade="property: component.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
+        animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade">
+        </a-sky>
+      <!-- Pass image sources to the template. -->
+      <a-entity id="links" layout="type: line; margin: 1.5" position="-1.5 -1 -4">
         <a-entity template="src: #link" data-src="#img-enter" data-thumb="#enter-thumb"></a-entity>
         <a-entity template="src: #link" data-src="#img-tibau" data-thumb="#tibau-thumb"></a-entity>
         <a-entity template="src: #link" data-src="#img-stage" data-thumb="#stage-thumb"></a-entity>
