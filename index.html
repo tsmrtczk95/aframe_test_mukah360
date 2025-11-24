@@ -4,7 +4,7 @@
     <script src="https://unpkg.com/aframe-template-component@3.x.x/dist/aframe-template-component.min.js"></script>
     <script src="https://unpkg.com/aframe-layout-component@5.x.x/dist/aframe-layout-component.min.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@5.x.x/dist/aframe-event-set-component.min.js"></script>
-    <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.jss"></script> -->
+    <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.js"></script> -->
     
     <script id="link" type="text/html">
         <a-entity class="link"
@@ -18,23 +18,24 @@
       <a-assets>
         <audio id="click-sound" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
         <!-- Images Custom. -->
-        <img id="post1" scr="asset_360/kaul_entrance.jpeg">
-        <img id="post2" scr="asset_360/kaul_stage.jpeg">
-        <img id="post3" scr="asset_360/kaul_signage.jpeg">
-        <img id="post4" scr="asset_360/kaul_tibau.jpeg">
-        <img id="thumbnail-tibau" scr="asset_360/thumbnail_tibau.jpeg">
-        <img id="thumbnail-entrance" scr="asset_360/thumbnail_entrance.jpeg">
-        <img id="thumbnail-stage" scr="asset_360/thumbnail_stage.jpeg">
+        <img id="img-entrance" src="asset_360/kaul_entrance.jpeg">
+        <img id="img-stage" src="asset_360/kaul_stage.jpeg">
+        <img id="img-signage" src="asset_360/kaul_signage.jpeg">
+        <img id="img-tibau" src="asset_360/kaul_tibau.jpeg">
+        <!-- Thumbnails -->
+        <img id="thumbnail-tibau" src="asset_360/thumbnail_tibau.jpeg">
+        <img id="thumbnail-entrance" src="asset_360/thumbnail_entrance.jpeg">
+        <img id="thumbnail-stage" src="asset_360/thumbnail_stage.jpeg">
       </a-assets>
       <!-- 360-degree image. -->
-      <a-sky src="asset_360/kaul_entrance.jpeg" rotation="0 -55 0"></a-sky>
+      <a-sky id="image-360" radius="10" src="#img-entrance" rotation="0 -55 0"></a-sky>
       <!-- Link template we will build. -->
-      <script id="link" type="text/html">
+      <!--<script id="link" type="text/html">
         <a-entity class="link"
         geometry="primitive: plane; height: 0.9 width: 1.2"
         material="shader: flat; src: ${thumbnail}"
         sound="on: click; src: #click-sound"></a-entity>
-      </script>
+      </script> -->
       <!-- Camera + Cursor. -->
       <a-camera>
         <a-cursor
@@ -46,9 +47,9 @@
       </a-scene>
       <!--...-->
       <a-entity id="links" layout="type: line; margin: 1.5" position="-1.5 -1 -4">
-        <a-entity template="src: asset_360/thumbnail_entrance.jpeg" data-thumb="#thumbnail_entrance"></a-entity>
-        <a-entity template="src: asset_360/thumbnail_tibau.jpeg" data-thumb="#thumbnail_tibau"></a-entity>
-        <a-entity template="src: asset_360/thumbnail_stage.jpeg" data-thumb="#thumbnail_stage"></a-entity>
+        <a-entity template="src: #link" data-thumb="#thumbnail-entrance" data-image="#img-entrance"> </a-entity>
+        <a-entity template="src: #link" data-thumb="#thumbnail-tibau" data-image="img-tibau"></a-entity>
+        <a-entity template="src: #link" data-thumb="#thumbnail-stage" data-image="img-stage"></a-entity>
       </a-entity>
   </body>
 </html>
