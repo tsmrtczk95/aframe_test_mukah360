@@ -14,14 +14,14 @@
           event-set__mouseleave="scale: 1 1 1"
           event-set__click="_target: #image-360; _delay: 300; material.src: ${src}">
           proxy-event="event: click; to: #image-360; as: fade></a-entity></script> -->
-    <script id="link" type="text/html">
+    <!-- <script id="link" type="text/html">
           <a-entity class="hotspot"
           geometry="primitive: sphere; radius: 0.2"
           material="color: #FFCC00; opacity: 0.9" position="${pos}"
           sound="on: click; src: #click-sound"
           event-set__mouseenter="scale: 1.4 1.4 1.4"
           event-set__mouseleave="scale: 1 1 1"
-          event-set__click="_target: #image-360; _delay: 300; material.src: ${src}"></a-entity></script>
+          event-set__click="_target: #image-360; _delay: 300; material.src: ${src}"></a-entity></script> -->
     </head>
   <body>
     <a-scene>
@@ -85,10 +85,10 @@
           // Activate relevant group
           if (src === '#img-enter') {
             document.querySelector('#hotspots-enter').setAttribute('visible', true); }
-            else if (src === '#img-tibau') {
-              document.querySelector('#hotspots-tibau').setAttribute('visible', true); }
-              else if (src === '#img-stage') {
-                document.querySelector('#hotspots-stage').setAttribute('visible', true); }
+          else if (src === '#img-tibau') {
+            document.querySelector('#hotspots-tibau').setAttribute('visible', true); }
+          else if (src === '#img-stage') {
+            document.querySelector('#hotspots-stage').setAttribute('visible', true); }
           });
         </script>
       </a-scene>
