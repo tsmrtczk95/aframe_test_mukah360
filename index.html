@@ -45,25 +45,23 @@
           event-set__mouseenter="scale: 1.4 1.4 1.4"
           event-set__mouseleave="scale: 1 1 1"
           event-set__click="_target: #image-360; _delay: 300; material.src: ${src}"></a-entity></script>
-        
       </a-assets>
       <!-- 360-degree image. -->
       <a-sky id="image-360" src="#img-enter" rotation="0 -55 0"
         animation__fadeout="material.color; from: #FFF; to: #000; dur: 400; startEvents: fadeout"
-        animation__fadein="material.color; from: #000; to: #FFF; dur: 400; startEvents: fadein">
-        <!-- Hotspot SCENE 1 -->
-        <a-entity id="hotspots-enter">
-          <a-entity template="src: #link" data-src="#img-tibau" data-pos="2 1 -3"></a-entity>
-          <a-entity template="src: #link" data-src="#img-stage" data-pos="-1 0.5 -3"></a-entity></a-entity>
-        <!-- Hotspot SCENE 2 -->
-        <a-entity id="hotspots-tibau" visible="false">
-          <a-entity template="src: #link" data-src="#img-enter" data-pos="1 1 -3"></a-entity>
-          <a-entity template="src: #link" data-src="#img-stage" data-pos="-2 0.5 -2"></a-entity></a-entity>
-        <!-- Hotspot SCENE 3 -->
-        <a-entity id="hotspots-stage" visible="false">
-          <a-entity template="src: #link" data-src="#img-enter" data-pos="-1 1 -3"></a-entity>
-          <a-entity template="src: #link" data-src="#img-tibau" data-pos="2 1 -2"></a-entity></a-entity>
-        </a-sky>
+        animation__fadein="material.color; from: #000; to: #FFF; dur: 400; startEvents: fadein"></a-sky>
+      <!-- Hotspot SCENE 1 -->
+      <a-entity id="hotspots-enter">
+        <a-entity template="src: #link" data-src="#img-tibau" data-pos="2 1 -3"></a-entity>
+        <a-entity template="src: #link" data-src="#img-stage" data-pos="-1 0.5 -3"></a-entity></a-entity>
+      <!-- Hotspot SCENE 2 -->
+      <a-entity id="hotspots-tibau" visible="false">
+        <a-entity template="src: #link" data-src="#img-enter" data-pos="1 1 -3"></a-entity>
+        <a-entity template="src: #link" data-src="#img-stage" data-pos="-2 0.5 -2"></a-entity></a-entity>
+      <!-- Hotspot SCENE 3 -->
+      <a-entity id="hotspots-stage" visible="false">
+        <a-entity template="src: #link" data-src="#img-enter" data-pos="-1 1 -3"></a-entity>
+        <a-entity template="src: #link" data-src="#img-tibau" data-pos="2 1 -2"></a-entity></a-entity>
       <!-- Camera + Cursor. -->
       <a-camera wasd-controls="enabled: false" 
         look-controls="pointerLockEnabled: false; touchEnabled: true; reverseMouseDrag: false; touchPitch: true">
