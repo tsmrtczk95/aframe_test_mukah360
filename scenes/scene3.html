@@ -15,8 +15,8 @@
         <audio id="click-sound" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
 <!-- IMAGE. -->
         <img id="360img" src="../asset_360/kaul_tibau.jpeg">
-<!-- THUMBNAILS. -->
-        <img id="thumb1" src="../asset_360/kaul_signage.jpeg">
+<!-- THUMBNAILS. --><!--
+        <img id="thumb1" src="../asset_360/kaul_signage.jpeg">-->
         <img id="thumb2" src="../asset_360/kaul_stage.jpeg">
       </a-assets>
 <!-- MAIN 360 IMAGE. -->
@@ -24,12 +24,12 @@
         animation__fade="property: component.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
         animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade">
         </a-sky>
-<!-- PORTALS. -->
+<!-- PORTALS. --><!--
       <a-sphere position="1 1 4" radius="0.8" src="#thumb1" page-portal="page: ../index.html" portal-glow="color: #00e5ff; intensity: 1.2"
         portal-label="text: Signage; offset: 0 1.1 0; textScale: 2" sound="on: click; src: #click-sound"
         animation__hover="property: scale; startEvents: mouseenter; to: 1.2 1.2 1.2; dur: 200"
         animation__leave="property: scale; startEvents: mouseleave; to: 1 1 1; dur: 200">
-      </a-sphere>
+      </a-sphere>-->
       <a-sphere position="0 1 -4" radius="0.8" src="#thumb2" page-portal="page: ../scenes/scene2.html" portal-glow="color: #00e5ff; intensity: 1.2"
         portal-label="text: Stage; offset: 0 1.1 0; textScale: 2" sound="on: click; src: #click-sound"
         animation__hover="property: scale; startEvents: mouseenter; to: 1.2 1.2 1.2; dur: 200"
