@@ -35,7 +35,7 @@
         animation__leave="property: scale; startEvents: mouseleave; to: 1 1 1; dur: 200">
       </a-sphere>
 <!-- CAMERA + CURSOR. -->
-      <a-camera  cursor="rayOrigin: mouse">
+      <a-camera wasd-control-enabled="false" cursor="rayOrigin: mouse">
         <a-cursor
           id="cursor"
           animation__click="property: scale; from: 0.1 0.1 0.1; to: 1 1 1; easing: easeInCubic; dur: 150; startEvents: click"
