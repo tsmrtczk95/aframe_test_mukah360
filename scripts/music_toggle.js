@@ -28,12 +28,21 @@ AFRAME.registerComponent('music-toggle', {
       if (!playing) {
         el.components.sound.playSound();
         label.setAttribute('value', 'Music On');
-        playing = true;
-      } else {
+        playing = true; } 
+      else {
         el.components.sound.pauseSound();
         label.setAttribute('value', 'Music Off');
-        playing = false;
-      }
+        playing = false; }
     });
+  },
+  
+  tick: function () {
+    const camera = this.el.sceneEl.camera; // Billboard effect: always face camera
+    if (!camera) return;
+
+    const camPos = new THREE.Vector3();
+    camera.getWorldPosition(camPos);
+
+    this.wrapper.object3D.lookAt(camPos);
   }
 });
