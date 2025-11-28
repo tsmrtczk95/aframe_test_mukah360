@@ -53,7 +53,7 @@ AFRAME.registerComponent('audio-toggle', {
       }
     });
   },
-  
+  /*
   tick: function () {
     // Billboard effect: always face camera
     const camera = this.el.sceneEl.camera;
@@ -63,5 +63,5 @@ AFRAME.registerComponent('audio-toggle', {
     camera.getWorldPosition(camPos);
 
     this.wrapper.object3D.lookAt(camPos);
-  }
+  }*/
 });
