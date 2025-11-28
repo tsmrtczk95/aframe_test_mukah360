@@ -1,6 +1,6 @@
 AFRAME.registerComponent('audio-toggle', {
   schema: {
-    target: {type: 'selector'},      // <audio> element
+    target: {type: 'selector'},      // <audio> elements
     mode: {default: 'pause'},        // pause or stop
     label: {default: ''},
     textOffset: {default: '0 0.8 0'},
