@@ -1,4 +1,4 @@
-AFRAME.registerComponent('audio-toggle', {
+AFRAME.registerComponent('audio-icons', {
   schema: {
     target: { type: 'string' },     // audio entity
     mode:   { default: 'pause' },   // 'pause' or 'restart'
