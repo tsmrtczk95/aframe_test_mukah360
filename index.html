@@ -14,8 +14,8 @@
       <a-assets>
 <!-- AUDIO. -->
         <audio id="click-sound" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
-        <audio id="bg-music" src="asset_360/sape leto ngorek.mp3"></audio>
-        <audio id="audioA" src="audio/audio_pestakaul.mp3"></audio>
+        <audio id="bg-music" src="asset_360/sape leto ngorek.mp3" preload="auto"></audio>
+        <audio id="audioA" src="audio/audio_pestakaul.mp3" preload="auto"></audio>
 <!-- IMAGE. -->
         <img id="360img" src="asset_360/kaul_signage.jpeg">
         <img id="thumb1" src="asset_360/kaul_stage.jpeg">
@@ -33,25 +33,21 @@
       </a-sphere>
 <!-- CONTENTS -->
 <!-- BACKGROUND MUSIC -->      
-      <a-entity id="bgm" src="#bg-music; autoplay: true; loop: true; volume: 0.6"></a-entity>
-      <a-sphere position="-4 1 -2" radius="0.2" color="#ffaa00"
-        audio-toggle="target: #bgm; mode: pause; label: Sape Leto Ngorek; textScale: 1.3"
+      <a-entity sound="src: #bg-music; autoplay: true; loop: true; volume: 0.6"></a-entity>
+      <a-sphere position="-4 1 -2" radius="0.2" color="#ffaa00" portal-label="text: Sape Leto Ngorek; offset: 0 -0.4 0; textScale: 1.3"
+        audio-toggle="target: #bg-music; mode: pause" sound="src: #bg-music; positional: true"
         animation__hover="property: scale; startEvents: mouseenter; to: 1.2 1.2 1.2; dur: 200"
         animation__leave="property: scale; startEvents: mouseleave; to: 0.8 0.8 0.8; dur: 200">
       </a-sphere>
 <!-- AUDIO #1 --><!-- STOP & RESTART -->
-      <a-sound id="audioA-play" sound="src: #audioA; autoplay: false; loop: false"></a-sound>
       <a-sphere position="-1 1 -4" radius="0.2" color="#ff4444" portal-label="text: Tentang Pesta Kaul; offset: 0 -0.4 0; textScale: 1.3"
-        audio-toggle="target: #audioA_play; mode: stop"
+        audio-toggle="target: #audioA; mode: restart" sound="src: #audioA; positional: true; volume: 1"
         animation__hover="property: scale; startEvents: mouseenter; to: 1.2 1.2 1.2; dur: 200"
         animation__leave="property: scale; startEvents: mouseleave; to: 0.8 0.8 0.8; dur: 200">
       </a-sphere>
 <!-- PAUSE & RESUME TEMPLATE --><!--
-      <a-entity id="audioA_player" sound="src: #audioA; autoplay: false; loop: false"></a-entity>
-      <a-sphere position="2 1 -3" radius="0.5" color="#00e5ff"
-        audio-toggle="target: #audioA_play; mode: pause; label: Audio A; textScale: 1.3"
-        animation__hover="property: scale; startEvents: mouseenter; to: 1.2 1.2 1.2; dur: 200"
-        animation__leave="property: scale; startEvents: mouseleave; to: 1 1 1; dur: 200">
+      <a-sphere position="0 1.5 -4" radius="0.5" audio-toggle="target: #audio2; mode: pause"
+      sound="src: #audio2; positional: true; volume: 1">
       </a-sphere>-->
 <!-- CAMERA + CURSOR. -->
       <a-camera wasd-controls-enabled="false" cursor="rayOrigin: mouse">
