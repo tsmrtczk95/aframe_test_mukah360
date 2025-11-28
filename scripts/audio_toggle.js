@@ -1,37 +1,35 @@
 AFRAME.registerComponent('audio-toggle', {
   schema: {
-    target: { type: 'string' },    // audio ID
-    mode:   { default: 'pause' }   // 'pause' | 'restart'
+    target: { type: 'string' },    // id of AUDIO ENTITY, not <audio>
+    mode:   { default: 'pause' }   // 'pause' or 'restart'
   },
 
   init: function () {
-    const audioEl = document.querySelector(this.data.target);
+    this.targetEl = document.querySelector(this.data.target);
 
-    if (!audioEl) {
-      console.warn('[audio-toggle] Target audio element not found:', this.data.target);
+    if (!this.targetEl) {
+      console.error("audio-toggle: Target entity not found:", this.data.target);
       return;
     }
 
-    // Ensure the audio component exists
-    audioEl.addEventListener('loaded', () => {
-      this.sound = audioEl.components.sound;
-    });
-
-    // Click handler
+    // Ensure sound component exists
     this.el.addEventListener('click', () => {
-      if (!this.sound) return;  // Prevents runtime error loop
+      const sound = this.targetEl.components.sound;
+      if (!sound) return;
 
+      // ==== PAUSE / RESUME ====
       if (this.data.mode === 'pause') {
-        if (this.sound.isPlaying) {
-          this.sound.pauseSound();
+        if (sound.isPlaying) {
+          sound.pauseSound();
         } else {
-          this.sound.playSound();
+          sound.playSound();
         }
       }
 
+      // ==== STOP + RESTART ====
       if (this.data.mode === 'restart') {
-        this.sound.stopSound();
-        this.sound.playSound();
+        sound.stopSound();
+        sound.playSound();
       }
     });
   }
