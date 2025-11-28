@@ -22,7 +22,7 @@ AFRAME.registerComponent('music-toggle', {
 
     // Create label
     const label = document.createElement('a-text');
-    label.setAttribute('value', 'Music Off');
+    label.setAttribute('value', 'Music On');
     label.setAttribute('align', 'center');
     label.setAttribute('position', '0 1 0');
     label.setAttribute('color', '#fff');
@@ -44,7 +44,7 @@ AFRAME.registerComponent('music-toggle', {
         playing = false; }
     });
   },
-  
+  /*
   tick: function () {
     const camera = this.el.sceneEl.camera; // Billboard effect: always face camera
     if (!camera) return;
@@ -53,5 +53,5 @@ AFRAME.registerComponent('music-toggle', {
     camera.getWorldPosition(camPos);
 
     this.wrapper.object3D.lookAt(camPos);
-  }
+  }*/
 });
