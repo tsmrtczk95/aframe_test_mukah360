@@ -28,8 +28,11 @@ AFRAME.registerComponent('audio-toggle', {
 
       // ==== STOP + RESTART ====
       if (this.data.mode === 'restart') {
-        sound.stopSound();
-        sound.playSound();
+        if (sound.isPlaying) {
+          sound.stopSound();
+        } else {
+          sound.playSound();
+        }
       }
     });
   }
