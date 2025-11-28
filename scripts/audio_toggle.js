@@ -1,29 +1,37 @@
 AFRAME.registerComponent('audio-toggle', {
   schema: {
-    target: { type: 'string' },    // audio id
-    mode:   { default: 'pause' }   // 'pause' or 'restart'
+    target: { type: 'string' },    // audio ID
+    mode:   { default: 'pause' }   // 'pause' | 'restart'
   },
 
   init: function () {
     const audioEl = document.querySelector(this.data.target);
-    const sound = audioEl.components.sound;
 
+    if (!audioEl) {
+      console.warn('[audio-toggle] Target audio element not found:', this.data.target);
+      return;
+    }
+
+    // Ensure the audio component exists
+    audioEl.addEventListener('loaded', () => {
+      this.sound = audioEl.components.sound;
+    });
+
+    // Click handler
     this.el.addEventListener('click', () => {
-      if (!sound) return;
+      if (!this.sound) return;  // Prevents runtime error loop
 
-      // --- TOGGLE TYPE 1: Pause / Resume ---
       if (this.data.mode === 'pause') {
-        if (sound.isPlaying) {
-          sound.pauseSound();
+        if (this.sound.isPlaying) {
+          this.sound.pauseSound();
         } else {
-          sound.playSound();
+          this.sound.playSound();
         }
       }
 
-      // --- TOGGLE TYPE 2: Stop / Restart from Beginning ---
       if (this.data.mode === 'restart') {
-        sound.stopSound();
-        sound.playSound();
+        this.sound.stopSound();
+        this.sound.playSound();
       }
     });
   }
