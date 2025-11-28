@@ -2,7 +2,7 @@ AFRAME.registerComponent('music-toggle', {
   init: function () {
     const el = this.el;
     const music = document.querySelector('#bg-music');
-    let playing = false;
+    let playing = true;
 
     // Ensure A-Frame sound component is attached
     el.setAttribute('sound', {
@@ -12,13 +12,13 @@ AFRAME.registerComponent('music-toggle', {
     });
 
     // --- Background box ---
-    const bg = document.createElement('a-plane');
+    /*const bg = document.createElement('a-plane');
     bg.setAttribute('width', '1.5');
     bg.setAttribute('height', '0.4');
     bg.setAttribute('color', 'black');
     bg.setAttribute('opacity', '0.6');
     bg.setAttribute('side', 'double');
-    bg.setAttribute('position', '0 0 0');
+    bg.setAttribute('position', '0 0 0');*/
 
     // Create label
     const label = document.createElement('a-text');
