@@ -43,15 +43,13 @@
         portal-label="text: Sape Leto Ngorek; offset: 0 -0.4 0; textScale: 1.3"
         audio-toggle="target: #bgMusic; mode: pause"
         animation__hover="property: scale; startEvents: mouseenter; to: 1.2 1.2 1.2; dur: 200"
-        animation__leave="property: scale; startEvents: mouseleave; to: 1 1 1; dur: 200">
-      </a-sphere>
+        animation__leave="property: scale; startEvents: mouseleave; to: 1 1 1; dur: 200"></a-sphere>
 <!-- AUDIO #1 --><!-- STOP & RESTART -->
       <a-sphere position="0 1 3" radius="0.1" color="#ff4444"
         portal-label="text: Tentang Pesta Kaul; offset: 0 -0.4 0; textScale: 1.3"
         audio-toggle="target: #aud-A; mode: restart"
         animation__hover="property: scale; startEvents: mouseenter; to: 1.2 1.2 1.2; dur: 200"
-        animation__leave="property: scale; startEvents: mouseleave; to: 1 1 1; dur: 200">
-      </a-sphere>
+        animation__leave="property: scale; startEvents: mouseleave; to: 1 1 1; dur: 200"></a-sphere>
 <!-- PAUSE & RESUME TEMPLATE --><!--
       <a-sphere position="0 1.5 -4" radius="0.6"
         audio-toggle="target: #p3; mode: pause">
@@ -62,23 +60,22 @@
         portal-label="text: Welcome to Pesta Kaul Mukah; offset: -0.75 0.2 0; textScale: 1.2"
         animation__hover="property: scale; startEvents: mouseenter; to: 1.4 1.4 1.4; dur: 50"
         animation__leave="property: scale; startEvents: mouseleave; to: 1 1 1; dur: 50"></a-sphere>
+      
+<!-- VIDEO HOTSPOT. -->
       <a-sphere position="3 2 3" radius="0.05" color="#ebdd1c"
-        portal-label="text: Serahang Kakan; offset: 0.85 -0.175 0; textScale: 1.3"
+        portal-label="text: VIDEO: Serahang Kakan; offset: 0.85 -0.175 0; textScale: 1.3"
         animation__hover="property: scale; startEvents: mouseenter; to: 1.4 1.4 1.4; dur: 50"
         animation__leave="property: scale; startEvents: mouseleave; to: 1 1 1; dur: 50"
         video-hotspot="src: video/vid_seraheng_720.mp4; Title: The Serahang Kakan Tradition of Melanau People"></a-sphere>
-      <a-sphere position="-1 1.5 3" radius="0.05" color="#2ba4e0"
-        portal-label="text: Terendak; offset: -0.75 -0.2 0; textScale: 1.2"
+      
+      <a-sphere position="-1 1.5 3" radius="0.05" color="#ebdd1c"
+        portal-label="text: VIDEO: Terendak; offset: -0.75 -0.2 0; textScale: 1.2"
         animation__hover="property: scale; startEvents: mouseenter; to: 1.4 1.4 1.4; dur: 50"
-        animation__leave="property: scale; startEvents: mouseleave; to: 1 1 1; dur: 50"></a-sphere>
+        animation__leave="property: scale; startEvents: mouseleave; to: 1 1 1; dur: 50"
+        video-hotspot="src: video/vid_terendak.mp4; Title: The Melanau Traditional Headwear - Terendak"></a-sphere>
 
 <!-- CAMERA + CURSOR. -->
-      <a-camera wasd-controls-enabled="false" cursor="rayOrigin: mouse"><!--
-        <a-cursor id="cursor"
-          animation__click="property: scale; from: 0.1 0.1 0.1; to: 1 1 1; easing: easeInCubic; dur: 150; startEvents: click"
-          animation__clickreset="property: scale; to: 0.1 0.1 0.1; dur: 1; startEvents: animationcomplete__click"
-          animation__fusing="property: scale; from: 1 1 1; to: 0.1 0.1 0.1; easing: easeInCubic; dur: 150; startEvents: fusing"></a-cursor>-->
-        </a-camera>
-      </a-scene>
+      <a-camera wasd-controls-enabled="false" cursor="rayOrigin: mouse"></a-camera>
+    </a-scene>
   </body>
 </html>
