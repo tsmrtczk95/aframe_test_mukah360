@@ -7,7 +7,8 @@ AFRAME.registerComponent('portal-label', {
     backgroundColor: {default: 'black'},
     backgroundOpacity: {default: 0.6},
     textColor: {default: '#ffffff'},
-    textScale: {default: 1}    //textScale in index.html: 1-Normal, 2-Double Size 4-Very Large
+    textScale: {default: 1},    //textScale in index.html: 1-Normal, 2-Double Size 4-Very Large
+    maxWidth: {default: 18}
   },
 
   init: function () {
@@ -17,7 +18,28 @@ AFRAME.registerComponent('portal-label', {
     const wrapper = document.createElement('a-entity');
     wrapper.object3D.position.set(offset[0], offset[1], offset[2]);
 
-    // --- Background box ---
+    // --- AUTO-WRAP FUNCTION ---
+    const wrapEntity = (str, maxWidth) => {
+      const words = str.split(' ');
+      let line = '';
+      let output = '';
+
+      words.forEach(word => {
+        if ((line + word).length <= maxWidth) {
+          line += word + ' ';
+        } else {
+          output += line.trim() + '\n';
+          line = word + ' ';
+        }
+      });
+
+      output += line.trim();
+      return output;
+    };
+
+    const wrappedEntity = wrapEntity(this.data.text, this.data.maxWidth);
+
+    // --- Background Box ---
     const bg = document.createElement('a-plane');
     bg.setAttribute('width', data.width);
     bg.setAttribute('height', data.height);
@@ -28,14 +50,14 @@ AFRAME.registerComponent('portal-label', {
 
     // --- Text label ---
     const label = document.createElement('a-text');
-    label.setAttribute('value', data.text);
+    label.setAttribute('value', wrappedEntity);
     label.setAttribute('align', 'center');
     label.setAttribute('color', data.textColor);
     label.setAttribute('side', 'double');
-    // Added A-text scaling *important
+    // --- Added A-text scaling *important ---
     label.setAttribute('scale', `${data.textScale} ${data.textScale} ${data.textScale}`);
     label.setAttribute('width', data.width * 1.2 * data.textScale);  // auto-fit
-    label.setAttribute('position', '0 0 0.01');     // slight forward
+    label.setAttribute('position', '0 0 0.01');    // slight forward
 
     wrapper.appendChild(bg);
     wrapper.appendChild(label);
@@ -45,7 +67,7 @@ AFRAME.registerComponent('portal-label', {
   },
 
   tick: function () {
-    // Billboard effect: always face camera
+    // Billboard Effect: Always Face Camera
     const camera = this.el.sceneEl.camera;
     if (!camera) return;
 
