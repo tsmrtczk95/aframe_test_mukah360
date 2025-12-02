@@ -38,18 +38,18 @@
       <a-entity id="bgMusic" sound="src: #bg-music; autoplay: true; loop: true; volume: 0.6"></a-entity>
       <a-entity id="aud-A" sound="src: #audioA; autoplay: false; loop: false; volume: 1; positional: true"></a-entity>
 <!-- BACKGROUND MUSIC --><!-- PAUSE MODE -->
-      <a-sphere position="2 1 -1" radius="0.2" color="#ffaa00" 
+      <a-sphere position="3 1 0" radius="0.1" color="#ffaa00" 
         portal-label="text: Sape Leto Ngorek; offset: 0 -0.4 0; textScale: 1.3"
         audio-toggle="target: #bgMusic; mode: pause"
         animation__hover="property: scale; startEvents: mouseenter; to: 1.2 1.2 1.2; dur: 200"
-        animation__leave="property: scale; startEvents: mouseleave; to: 0.8 0.8 0.8; dur: 200">
+        animation__leave="property: scale; startEvents: mouseleave; to: 1 1 1; dur: 200">
       </a-sphere>
 <!-- AUDIO #1 --><!-- STOP & RESTART -->
-      <a-sphere position="3 1 1" radius="0.2" color="#ff4444"
+      <a-sphere position="0 1 3" radius="0.1" color="#ff4444"
         portal-label="text: Tentang Pesta Kaul; offset: 0 -0.4 0; textScale: 1.3"
         audio-toggle="target: #aud-A; mode: restart"
         animation__hover="property: scale; startEvents: mouseenter; to: 1.2 1.2 1.2; dur: 200"
-        animation__leave="property: scale; startEvents: mouseleave; to: 0.8 0.8 0.8; dur: 200">
+        animation__leave="property: scale; startEvents: mouseleave; to: 1 1 1; dur: 200">
       </a-sphere>
 <!-- PAUSE & RESUME TEMPLATE --><!--
       <a-sphere position="0 1.5 -4" radius="0.6"
