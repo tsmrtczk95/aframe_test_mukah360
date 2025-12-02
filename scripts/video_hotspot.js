@@ -1,5 +1,4 @@
-<script>
-  AFRAME.registerComponent('video-hotspot', {
+AFRAME.registerComponent('video-hotspot', {
     schema: {
       src: { type: 'string', default: '' },
       title: { type: 'string', default: '' }
@@ -141,4 +140,3 @@
       this.overlay.style.display = 'none';
     }
   };
-</script>
