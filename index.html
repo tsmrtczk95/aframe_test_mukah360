@@ -55,13 +55,19 @@
       <a-sphere position="0 1.5 -4" radius="0.6"
         audio-toggle="target: #p3; mode: pause">
       </a-sphere>
+      
+<!-- ANNOTATIONS. -->
+      <a-sphere position="0 2 3" radius="0.05" color="#2ba4e0"
+        portal-label="text: Selamat Datang ke Pesta Kaul Mukah; offset: 0 -0.25 0; textScale: 1.2"
+        animation__hover="property: scale; startEvents: mouseenter; to: 1.4 1.4 1.4; dur: 50"
+        animation__leave="property: scale; startEvents: mouseleave; to: 1 1 1; dur: 50"></a-sphere>
 
 <!-- CAMERA + CURSOR. -->
-      <a-camera wasd-controls-enabled="false" cursor="rayOrigin: mouse">
+      <a-camera wasd-controls-enabled="false" cursor="rayOrigin: mouse"><!--
         <a-cursor id="cursor"
           animation__click="property: scale; from: 0.1 0.1 0.1; to: 1 1 1; easing: easeInCubic; dur: 150; startEvents: click"
           animation__clickreset="property: scale; to: 0.1 0.1 0.1; dur: 1; startEvents: animationcomplete__click"
-          animation__fusing="property: scale; from: 1 1 1; to: 0.1 0.1 0.1; easing: easeInCubic; dur: 150; startEvents: fusing"></a-cursor>
+          animation__fusing="property: scale; from: 1 1 1; to: 0.1 0.1 0.1; easing: easeInCubic; dur: 150; startEvents: fusing"></a-cursor>-->
         </a-camera>
       </a-scene>
   </body>
