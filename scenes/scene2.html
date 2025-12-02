@@ -14,7 +14,7 @@
       <a-assets>
 <!-- AUDIO. -->
         <audio id="click-sound" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
-        <audio id="mp3sape" src="asset_360/sape leto ngorek.mp3"></audio>
+        <audio id="mp3sape" src="../asset_360/sape leto ngorek.mp3"></audio>
         
 <!-- IMAGE. -->
         <img id="360img" src="../asset_360/kaul_stage2.jpeg">
@@ -39,7 +39,7 @@
       </a-sphere>
 <!-- CONTENTS. -->
       <a-entity id="sape" sound="src: #mp3sape; autoplay: false; loop: false; volume: 1"></a-entity>
-      <a-sphere position="0 0.1 3" radius="0.05" color="#ffaa00" 
+      <a-sphere position="-3 0.1 3" radius="0.05" color="#ffaa00" 
         portal-label="text: Sape; offset: 0 -0.2 0; textScale: 1.2"
         audio-toggle="target: #sape; mode: pause"
         animation__hover="property: scale; startEvents: mouseenter; to: 1.2 1.2 1.2; dur: 50"
