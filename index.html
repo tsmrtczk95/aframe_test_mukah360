@@ -1,45 +1,58 @@
 <html>
   <head>
     <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
-    <!--<script src="https://unpkg.com/aframe-template-component@3.x.x/dist/aframe-template-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-template-component@3.x.x/dist/aframe-template-component.min.js"></script>
     <script src="https://unpkg.com/aframe-layout-component@5.x.x/dist/aframe-layout-component.min.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@5.x.x/dist/aframe-event-set-component.min.js"></script>
-    <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.jss"></script> -->
+    <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.js"></script> -->
+    
+    <script id="link" type="text/html">
+        <a-entity class="link"
+          geometry="primitive: plane; height: 0.9 width: 1.2"
+          material="shader: flat; src: ${thumb}"
+          sound="on: click; src: #click-sound"
+          event-set__mouseenter="scale: 1.2 1.2 1"
+          event-set__mouseleave="scale: 1 1 1"
+          event-set__click="_target: #image-360; _delay: 300; material.src: ${src}">
+          proxy-event="event: click; to: #image-360; as: fade></a-entity>
+    </script>
   </head>
   <body>
-    <!--
-    <a-scene>
-      <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
-      <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
-      <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
-      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
-      <a-sky color="#ECECEC"></a-sky>
-    </a-scene> -->
     <a-scene>
       <a-assets>
         <audio id="click-sound" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
-        <!-- Images. -->
-        <img id="city" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/city.jpg">
-        <img id="city-thumb" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-city.jpg">
-        <img id="cubes" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/cubes.jpg">
-        <img id="cubes-thumb" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-cubes.jpg">
-        <img id="sechelt" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
-        <img id="sechelt-thumb" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-sechelt.jpg">
         <!-- Images Custom. -->
-        <img id="post1" scr="https://github.com/tsmrtczk95/aframe_test_mukah360/blob/efa407d370b53bdb1a4217ef370217a8e75caa62/asset_360/kaul_entrance.jpeg">
-        <img id="post2" scr="asset_360/kaul_stage.jpeg">
-        <img id="post3" scr="asset_360/kaul_signage.jpeg">
-        <img id="post4" scr="asset_360/kaul_tibau.jpeg">
-        <img id="thumbnail-tibau" scr="https://github.com/tsmrtczk95/aframe_test_mukah360/blob/c4e1b92928543c93a3a4a7066bcfc9ec77297257/asset_360/kaul_tibau.jpeg"></a-assets>
+        <img id="img-enter" src="asset_360/kaul_entrance.jpeg">
+        <img id="img-stage" src="asset_360/kaul_stage.jpeg">
+        <img id="img-signage" src="asset_360/kaul_signage.jpeg">
+        <img id="img-tibau" src="asset_360/kaul_tibau.jpeg">
+        <!-- Thumbnails -->
+        <img id="tibau-thumb" src="asset_360/thumbnail_tibau.jpeg">
+        <img id="enter-thumb" src="asset_360/thumbnail_entrance.jpeg">
+        <img id="stage-thumb" src="asset_360/thumbnail_stage.jpeg">
+
+        <script id="link" type="text/html">
+          <a-entity class="link"
+          geometry="primitive: plane; height: 0.9 width: 1.2"
+          material="shader: flat; src: ${thumb}"
+          sound="on: click; src: #click-sound"
+          event-set__mouseenter="scale: 1.2 1.2 1"
+          event-set__mouseleave="scale: 1 1 1"
+          event-set__click="_target: #image-360; _delay: 300; material.src: ${src}">
+          proxy-event="event: click; to: #image-360; as: fade></a-entity>
+        </script>
+      </a-assets>
       <!-- 360-degree image. -->
-      <!-- <a-sky id="image-360" radius="10" src="#post1"></a-sky> -->
-      <a-sky src="asset_360/kaul_entrance.jpeg" rotation="0 -55 0"></a-sky>
-      <!-- Link template we will build. -->
-      <a-entity class="link"
-        position="0 1 -3"
-        geometry="primitive: plane; height: 0.9 width: 1.2"
-        material="shader: flat; src: asset_360/kaul_tibau.jpeg"
-        sound="on: click; src: #click-sound"></a-entity>
+      <a-sky id="image-360" src="#img-enter" rotation="0 -55 0"
+        animation__fade="property: component.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
+        animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade">
+        </a-sky>
+      <!-- Pass image sources to the template. -->
+      <a-entity id="links" layout="type: line; margin: 1.5" position="-1.5 0.5 -4" border="2px">
+        <a-entity template="src: #link" data-src="#img-enter" data-thumb="#enter-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#img-tibau" data-thumb="#tibau-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#img-stage" data-thumb="#stage-thumb"></a-entity>
+      </a-entity>
       <!-- Camera + Cursor. -->
       <a-camera>
         <a-cursor
@@ -48,6 +61,6 @@
           animation__clickreset="property: scale; to: 0.1 0.1 0.1; dur: 1; startEvents: animationcomplete__click"
           animation__fusing="property: scale; from: 1 1 1; to: 0.1 0.1 0.1; easing: easeInCubic; dur: 150; startEvents: fusing"></a-cursor>
         </a-camera>
-      </a-scene>    
+      </a-scene>
   </body>
 </html>
